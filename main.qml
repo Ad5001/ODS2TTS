@@ -13,7 +13,10 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        Page1 {
+        ChooseFile {
+            onFinished: function(){
+                
+            }
         }
 
         Page {
@@ -22,9 +25,17 @@ ApplicationWindow {
                 anchors.centerIn: parent
             }
         }
+
+        Page {
+            Label {
+                text: qsTr("Third page")
+                anchors.centerIn: parent
+            }
+        }
     }
 
     footer: TabBar {
+        visible: false
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
@@ -32,6 +43,9 @@ ApplicationWindow {
         }
         TabButton {
             text: qsTr("Second")
+        }
+        TabButton {
+            text: qsTr("Third")
         }
     }
 }

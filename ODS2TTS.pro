@@ -1,8 +1,10 @@
-QT += qml quick
+QT += qml widgets
 
 CONFIG += c++11
 
 SOURCES += main.cpp
+
+HEADERS += process.h
 
 RESOURCES += qml.qrc
 
@@ -27,3 +29,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    odt2tts.sh
