@@ -3,6 +3,10 @@
         <file>main.qml</file>
         <file>ChooseFile.qml</file>
         <file>LoadingFile.qml</file>
+        <file>PlayingPage.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>img/loading.png</file>
+        <file>img/pause.png</file>
+        <file>img/play.png</file>
     </qresource>
 </RCC>

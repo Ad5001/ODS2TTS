@@ -6,31 +6,30 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("TTS LibreOffice")
 
     SwipeView {
         id: swipeView
         anchors.fill: parent
-        currentIndex: tabBar.currentIndex
+        currentIndex: 0
 
         ChooseFile {
+            onStarted: function() {
+                swipeView.currentIndex = 1;
+                playing.stopAudio()
+            }
             onFinished: function(){
-                
+                swipeView.currentIndex = 2
+                playing.startAudio()
             }
         }
 
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
+        LoadingFile {
         }
 
-        Page {
-            Label {
-                text: qsTr("Third page")
-                anchors.centerIn: parent
-            }
+        PlayingPage {
+            id: playing
+            onBackToMainPage: swipeView.currentIndex = 0
         }
     }
 

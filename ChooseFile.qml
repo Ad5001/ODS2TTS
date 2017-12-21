@@ -94,6 +94,7 @@ Rectangle {
         id: txt2waveProc
         onFinished: function(){
             console.log("Ended!", readAll())
+            root.finished();
         }
     }
 }
