@@ -7,7 +7,6 @@ int main(int argc, char *argv[])
 {
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
-    qApp->setStyleSheet("Material");
     qmlRegisterType<Process>("Process", 1, 0, "Process");
 
     QQmlApplicationEngine engine;

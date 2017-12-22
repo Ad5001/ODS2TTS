@@ -52,7 +52,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: parent.height/2
-        currentIndex: 2
+        currentIndex: 0
         model: ["French", "English", "German", "Spanish"]
         property var langData: [
             "fr-FR",
@@ -63,7 +63,6 @@ Rectangle {
         width: 200
         onCurrentIndexChanged: function(){
             root.choosenLang = langData[currentIndex];
-            console.log(root.choosenLang);
         }
     }
 
@@ -93,7 +92,6 @@ Rectangle {
     Process {
         id: txt2waveProc
         onFinished: function(){
-            console.log("Ended!", readAll())
             root.finished();
         }
     }

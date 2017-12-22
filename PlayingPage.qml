@@ -79,11 +79,11 @@ Rectangle {
             anchors.left: parent.left
             anchors.leftMargin: 60
             height: 20
-            width: 500
+            width: 450
             background: Rectangle {
                 anchors.left: progress.left
                 anchors.leftMargin: -5
-                width: 500
+                width: 450
                 height: 25
                 anchors.verticalCenter: parent.verticalCenter
                 color: "#000000"
@@ -106,9 +106,9 @@ Rectangle {
         Slider {
             anchors.left: progress.left
             anchors.verticalCenter: progress.verticalCenter
-            width: 500
+            anchors.leftMargin: -20
+            width: 450
             height: 15
-                anchors.leftMargin: -20
             id: setSlider
             from: 0
             to: 1
@@ -118,6 +118,15 @@ Rectangle {
             }
             opacity: 0.01
         }
+
+        Text {
+            id: timeText
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: progress.left
+            anchors.leftMargin: 450
+            height: 25
+            text: "00:00/00:00"
+        }
     }
 
     Timer {
@@ -126,6 +135,17 @@ Rectangle {
         repeat: true
         onTriggered:function(){
             progress.value = playAudio.position / playAudio.duration
+            var currentSecs = Math.round(playAudio.position / 1000)|0;
+            var durationSecs = Math.round(playAudio.duration / 1000)|0;
+            var currentMinutes = Math.floor(currentSecs / 60);
+            if(currentMinutes < 10) currentMinutes = "0" + currentMinutes;
+            var durationMinutes = Math.floor(durationSecs / 60)
+            if(durationMinutes < 10) durationMinutes = "0" + durationMinutes;
+            var currentSetSecs = currentSecs % 60;
+            if(currentSetSecs < 10) currentSetSecs = "0" + currentSetSecs;
+            var durationSetSecs = durationSecs % 60;
+            if(durationSetSecs < 10) durationSetSecs = "0" + durationSetSecs;
+            timeText.text = currentMinutes + ":" + currentSetSecs + "/" + durationMinutes + ":" + durationSetSecs
             setSlider.value = progress.value
         }
     }
