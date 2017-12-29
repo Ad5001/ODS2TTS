@@ -46,4 +46,6 @@ else
 fi
 qmake ../
 sudo make install
+echo "Built program..."
+sudo ln -s /opt/ODS2TTS/bin/ODS2TTS /usr/bin/ods2tts
 echo "Successfully installed ODS2TTS!"
