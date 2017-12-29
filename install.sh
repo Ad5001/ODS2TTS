@@ -45,5 +45,5 @@ else
   fi
 fi
 qmake ../
-sudo make install 2>&1 > /dev/null
+sudo make install
 echo "Successfully installed ODS2TTS!"
