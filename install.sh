@@ -44,6 +44,6 @@ else
         echo "Could not find a package manager. Please install make manually."
   fi
 fi
-qmake ../../
+qmake ../
 make 2>&1 > /dev/null
 ./ODS2TTS
